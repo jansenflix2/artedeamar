@@ -1,125 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Plyr - A simple, customizable HTML5 Video, Audio, YouTube and Vimeo player</title>
+    <meta
+      name="description"
+      property="og:description"
+      content="A simple HTML5 media player with custom controls and WebVTT captions."
+    />
+    <meta name="author" content="Sam Potts" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"><head><title>Wes Moore, 2007 Founder, iPlayerHD</title><meta charset="utf-8"><meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0"><meta property="og:title" content="Wes Moore, 2007 Founder, iPlayerHD"><meta property="og:description" content="Why choosing iPlayerHD over YouTube embeds makes sense."><meta property="og:type" content="Movie"><meta property="og:url" content="https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/share"><meta property="og:site_name" content="iPlayerHD"><meta property="og:image" content="http://cdn.iplayerhd.com/assets/img/FullyTransparent_65x29.png"><meta property="og:image:secure_url" content="https://dls7rxd829s2x.cloudfront.net/assets/img/FullyTransparent_65x29.png"><meta property="og:video" content="http://iplayerhd.com/swf/flowplayer.unlimited-3.2.10.swf?config={%22clip%22:%22http://cdn.iplayerhd.com/data/8/1ace2618.mp4%22}"><meta property="og:video:secure_url" content="https://iplayerhd.com/swf/flowplayer.unlimited-3.2.10.swf?config={%22clip%22:%22https://dls7rxd829s2x.cloudfront.net/data/8/1ace2618.mp4%22}"><meta property="og:video:width" content="960"><meta property="og:video:height" content="540"><meta property="og:video:type" content="application/x-shockwave/flash"><meta property="twitter:player" content="https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5"><meta property="twitter:player:width" content="1280"><meta property="twitter:player:height" content="720"><meta property="twitter:card" content="player"><meta property="twitter:site" content="@iPlayerHD"><meta property="twitter:title" content="Wes Moore, 2007 Founder, iPlayerHD"><meta property="twitter:description" content="Why choosing iPlayerHD over YouTube embeds makes sense."><meta property="twitter:image" content="https://dls7rxd829s2x.cloudfront.net/assets/img/FullyTransparent_65x29.png"><link rel="canonical" href="https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5"><link rel="alternate" type="application/json+oembed" href="http://iplayerhd.com/player/video/oembed?url=http%3A%2F%2Fiplayerhd.com%2Fplayer%2Fvideo%2Fb61264e0-998b-4855-956f-bbab12c8f0c5&amp;format=json" title="iPlayerHD oEmbed Video"><link rel="alternate" type="text/xml+oembed" href="http://iplayerhd.com/player/video/oembed?url=http%3A%2F%2Fiplayerhd.com%2Fplayer%2Fvideo%2Fb61264e0-998b-4855-956f-bbab12c8f0c5&amp;format=xml" title="iPlayerHD oEmbed Video"><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/common/js/fixes.js"></script><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/common/js/jquery-1.11.2.min.js"></script><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/js/jquery-migrate.min.js"></script><style>.flowplayer .fp-timeline, .fp-volumeslider {
-    background-color: #a5a5a5 !important;
-}
+    <!-- Icons -->
+    <link rel="icon" href="https://cdn.plyr.io/static/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="https://cdn.plyr.io/static/icons/32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="https://cdn.plyr.io/static/icons/16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.plyr.io/static/icons/180x180.png" />
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Plyr - A simple, customizable HTML5 Video, Audio, YouTube and Vimeo player" />
+    <meta property="og:site_name" content="Plyr" />
+    <meta property="og:url" content="https://plyr.io" />
+    <meta property="og:image" content="https://cdn.plyr.io/static/icons/1200x630.png" />
 
-.flowplayer .fp-buffer {
-    background-color: #eee !important;
-}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sam_potts" />
+    <meta name="twitter:creator" content="@sam_potts" />
+    <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- Docs styles -->
+    <link rel="stylesheet" href="dist/demo.css" />
 
-.flowplayer .fp-progress, .fp-progress:before, .fp-volumelevel {
-    background-color: #00a7c8 !important;
-}
+    <!-- Preload -->
+    <link
+      rel="preload"
+      as="font"
+      crossorigin
+      type="font/woff2"
+      href="https://cdn.plyr.io/static/fonts/gordita-medium.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      crossorigin
+      type="font/woff2"
+      href="https://cdn.plyr.io/static/fonts/gordita-bold.woff2"
+    />
 
+    <!-- Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132699580-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-132699580-1');
+    </script>
+  </head>
 
-.flowplayer .fp-controls,
-.flowplayer .fp-controls .fp-play,
-.flowplayer .fp-ui .fp-fullscreen,
-.flowplayer .cssPlayButton,
-.flowplayer .tapToUnmuteWrap,
-.flowplayer .fp-playlist.items .itemname,
-.flowplayer .ip-overlay-menu a,
-.flowplayer .fp-playlist.items a .itemdescription,
-.flowplayer .videoTitle,
-.flowplayer .ip-overlay.ip-info,
-.flowplayer .fp-menu .fp-dropdown,
-.flowplayer .fp-menu-qual .fp-dropdown,
-.flowplayer .fp-volume-back
-{
-    background-color: rgba(0, 0, 0, 0.65098) !important;
-    background-image: none !important;
-}
+  <body>
+    <div class="grid">
+      <header>
+        <h1>Pl<span>a</span>y<span>e</span>r</h1>
+        <p>
+          A simple, accessible and customisable media player for
+          <button type="button" class="link" data-source="video">
+            <svg class="icon">
+              <title>HTML5</title>
+              <path
+                d="M14.738.326C14.548.118 14.28 0 14 0H2c-.28 0-.55.118-.738.326S.98.81 1.004 1.09l1 11c.03.317.208.603.48.767l5 3c.16.095.338.143.516.143s.356-.048.515-.143l5-3c.273-.164.452-.45.48-.767l1-11c.026-.28-.067-.557-.257-.764zM12 4H6v2h6v5.72l-4 1.334-4-1.333V9h2v1.28l2 .666 2-.667V8H4V2h8v2z"
+              ></path>
+            </svg>
+            Video</button
+          >,
+          <button type="button" class="link" data-source="audio">
+            <svg class="icon">
+              <title>HTML5</title>
+              <path
+                d="M14.738.326C14.548.118 14.28 0 14 0H2c-.28 0-.55.118-.738.326S.98.81 1.004 1.09l1 11c.03.317.208.603.48.767l5 3c.16.095.338.143.516.143s.356-.048.515-.143l5-3c.273-.164.452-.45.48-.767l1-11c.026-.28-.067-.557-.257-.764zM12 4H6v2h6v5.72l-4 1.334-4-1.333V9h2v1.28l2 .666 2-.667V8H4V2h8v2z"
+              ></path>
+            </svg>
+            Audio</button
+          >,
+          <button type="button" class="link" data-source="youtube">
+            <svg class="icon" role="presentation">
+              <title>YouTube</title>
+              <path
+                d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8
+                   s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z
+                    M6,11V5l5,3L6,11z"
+              ></path>
+            </svg>
+            YouTube
+          </button>
+          and
+          <button type="button" class="link" data-source="vimeo">
+            <svg class="icon" role="presentation">
+              <title>Vimeo</title>
+              <path
+                d="M16,4.3c-0.1,1.6-1.2,3.7-3.3,6.4c-2.2,2.8-4,4.2-5.5,4.2c-0.9,0-1.7-0.9-2.4-2.6C4,9.9,3.4,5,2,5
+                       C1.9,5,1.5,5.3,0.8,5.8L0,4.8c0.8-0.7,3.5-3.4,4.7-3.5C5.9,1.2,6.7,2,7,3.8c0.3,2,0.8,6.1,1.8,6.1c0.9,0,2.5-3.4,2.6-4
+                       c0.1-0.9-0.3-1.9-2.3-1.1c0.8-2.6,2.3-3.8,4.5-3.8C15.3,1.1,16.1,2.2,16,4.3z"
+              ></path>
+            </svg>
+            Vimeo
+          </button>
+        </p>
 
-.flowplayer .ip-sharer-btn {
-    background-color: rgba(0, 0, 0, 0.65098);
-    background-image: none !important;
-}
+        <div class="call-to-action">
+          <a href="https://github.com/sampotts/plyr" target="_blank" class="button js-shr">
+            <svg class="icon" role="presentation">
+              <title>GitHub</title>
+              <path
+                d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6
+               C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5
+               c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1
+               c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8
+               c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2
+               c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"
+              ></path>
+            </svg>
+            Download on GitHub
+          </a>
+        </div>
+      </header>
+      <main>
+        <div id="container">
+          <video
+            controls
+            crossorigin
+            playsinline
+            data-poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+            id="player"
+          >
+            <!-- Video files -->
+            <source
+              src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+              type="video/mp4"
+              size="576"
+            />
+            <source
+              src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
+              type="video/mp4"
+              size="720"
+            />
+            <source
+              src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+              type="video/mp4"
+              size="1080"
+            />
 
-/* fonts
-.flowplayer .fp-playlist.items .itemname,
-.flowplayer .fp-playlist.items a .itemdescription,
-.flowplayer .fp-ui .fp-elapsed, .flowplayer .fp-ui .fp-duration,
-.flowplayer.has-qualities .fp-ui .fp-quality-selector {
-    {{style.playerFont Body-M}}
-} */
+            <!-- Caption files -->
+            <track
+              kind="captions"
+              label="English"
+              srclang="en"
+              src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+              default
+            />
+            <track
+              kind="captions"
+              label="Français"
+              srclang="fr"
+              src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+            />
 
-.flowplayer .fp-ui .fp-elapsed, .flowplayer .fp-ui .fp-duration {
-    font-size: 11px !important;
-    line-height: 10px !important;
-}
+            <!-- Fallback for browsers that don't support the <video> element -->
+            <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+          </video>
+        </div>
 
-.flowplayer.has-qualities .fp-ui .fp-quality-selector {
-    font-size: 12px !important;
-}
+        <ul>
+          <li class="plyr__cite plyr__cite--video" hidden>
+            <small>
+              <svg class="icon">
+                <title>HTML5</title>
+                <path
+                  d="M14.738.326C14.548.118 14.28 0 14 0H2c-.28 0-.55.118-.738.326S.98.81 1.004 1.09l1 11c.03.317.208.603.48.767l5 3c.16.095.338.143.516.143s.356-.048.515-.143l5-3c.273-.164.452-.45.48-.767l1-11c.026-.28-.067-.557-.257-.764zM12 4H6v2h6v5.72l-4 1.334-4-1.333V9h2v1.28l2 .666 2-.667V8H4V2h8v2z"
+                ></path>
+              </svg>
+              <a
+                href="https://itunes.apple.com/au/movie/view-from-a-blue-moon/id1041586323"
+                target="_blank"
+                class="link"
+                >View From A Blue Moon</a
+              >
+              &copy; Brainfarm
+            </small>
+          </li>
+          <li class="plyr__cite plyr__cite--audio" hidden>
+            <small>
+              <svg class="icon" title="HTML5">
+                <title>HTML5</title>
+                <path
+                  d="M14.738.326C14.548.118 14.28 0 14 0H2c-.28 0-.55.118-.738.326S.98.81 1.004 1.09l1 11c.03.317.208.603.48.767l5 3c.16.095.338.143.516.143s.356-.048.515-.143l5-3c.273-.164.452-.45.48-.767l1-11c.026-.28-.067-.557-.257-.764zM12 4H6v2h6v5.72l-4 1.334-4-1.333V9h2v1.28l2 .666 2-.667V8H4V2h8v2z"
+                ></path>
+              </svg>
+              <a href="http://www.kishibashi.com/" target="_blank" class="link"
+                >Kishi Bashi &ndash; &ldquo;It All Began With A Burst&rdquo;</a
+              >
+              &copy; Kishi Bashi
+            </small>
+          </li>
+          <li class="plyr__cite plyr__cite--youtube" hidden>
+            <small>
+              <a href="https://www.youtube.com/watch?v=bTqVqk7FSmY" target="_blank">View From A Blue Moon</a>
+              on&nbsp;
+              <span class="color--youtube">
+                <svg class="icon" role="presentation">
+                  <title>YouTube</title>
+                  <path
+                    d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8
+                                   s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z
+                                    M6,11V5l5,3L6,11z"
+                  ></path></svg
+                >YouTube
+              </span>
+            </small>
+          </li>
+          <li class="plyr__cite plyr__cite--vimeo" hidden>
+            <small>
+              <a href="https://vimeo.com/40648169" target="_blank" class="link">Toob “Wavaphon” Music Video</a>
+              on&nbsp;
+              <span class="color--vimeo">
+                <svg class="icon" role="presentation">
+                  <title>Vimeo</title>
+                  <path
+                    d="M16,4.3c-0.1,1.6-1.2,3.7-3.3,6.4c-2.2,2.8-4,4.2-5.5,4.2c-0.9,0-1.7-0.9-2.4-2.6C4,9.9,3.4,5,2,5
+                               C1.9,5,1.5,5.3,0.8,5.8L0,4.8c0.8-0.7,3.5-3.4,4.7-3.5C5.9,1.2,6.7,2,7,3.8c0.3,2,0.8,6.1,1.8,6.1c0.9,0,2.5-3.4,2.6-4
+                               c0.1-0.9-0.3-1.9-2.3-1.1c0.8-2.6,2.3-3.8,4.5-3.8C15.3,1.1,16.1,2.2,16,4.3z"
+                  ></path></svg
+                >Vimeo
+              </span>
+            </small>
+          </li>
+        </ul>
+      </main>
+    </div>
 
-/* font color */
-.flowplayer .fp-ui .fp-elapsed, .flowplayer .fp-ui .fp-duration,
-.flowplayer.has-qualities .fp-ui .fp-quality-selector,
-.flowplayer .fp-playlist.items .itemname,
-.flowplayer .fp-playlist.items a .itemdescription,
-.flowplayer .videoTitleWrap .videoTitle span,
-.flowplayer .ip-overlay.ip-info .ip-info-content,
-.flowplayer .fp-menu .fp-dropdown li,
-.flowplayer .fp-menu-qual .fp-dropdown li
-{
-    color: #EEE !important;
-}
+    <aside>
+      <svg class="icon">
+        <title>Twitter</title>
+        <path
+          d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1
+       C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7
+       c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3
+       c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"
+        ></path>
+      </svg>
+      <p>
+        If you think Plyr's good,
+        <a
+          href="https://twitter.com/intent/tweet?text=A+simple+HTML5+media+player+with+custom+controls+and+WebVTT+captions.&amp;url=http%3A%2F%2Fplyr.io&amp;via=Sam_Potts"
+          target="_blank"
+          class="link js-shr"
+          >tweet it</a
+        >
+        👍
+      </p>
+    </aside>
 
-.flowplayer .ip-overlay.ip-info .closeOverlay svg path
-{
-    fill: #fff !important;
-}
-
-/* controls */
-
-.flowplayer .fp-controls .fp-progress:after {
-    border-color: #fff !important;
-    opacity: 0.65;
-}
-.flowplayer .fp-controls .fp-play,
-.flowplayer .fp-controls .fp-mute,
-.flowplayer .cssPlayButton .playSymbol,
-.flowplayer .fp-ui .fp-fullscreen,
-.flowplayer .fp-controls-fullscreen,
-.flowplayer .fp-menu,
-.flowplayer .fp-menu-qual
-{
-    color: #fff !important;
-}
-
-.flowplayer .ip-overlay-menu a path,
-.flowplayer .share-button-controlbar a path,
-.flowplayer .info-button-controlbar a path,
-.flowplayer .fp-menu svg path,
-.flowplayer .tapToUnmuteWrap .volanim path
-{
-    fill: #fff !important;
-}
-
-.flowplayer .ip-sharer-btn path {
-    fill: #fff;
-}
-
-.flowplayer .cssPlayButtonBorder
-{
-    border-color: #fff !important;
-}
-
-.flowplayer .ip-sharer-btn {
-    border-color: #fff;
-}
-
-/* widget background */
-.flowplayer .scrollable-playlist, .flowplayer {
-    background-color: #000 !important;
-}</style><link rel="stylesheet" href="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/flowplayer/skin/flowplayer.css"><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/flowplayer/flowplayer.js"></script><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/js/fastclick.js"></script><link rel="stylesheet" href="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/compiled/embed.min.css"><script src="https://d24p1atj6s5nd5.cloudfront.net/assets-server/p146/player/compiled/embed.min.js"></script><script>$(function () {
-
-    var config = {"videos":[{"guid":"b61264e0-998b-4855-956f-bbab12c8f0c5","id":533109,"bitrates":["2200K","1500K"],"qualities":{"2200K":{"bitrate":"2200K","url":"https://dls7rxd829s2x.cloudfront.net/data/8/1ace2618.mp4","path":"data/8/1ace2618.mp4","type":"mp4","fileId":5722360},"1500K":{"bitrate":"1500K","url":"https://dls7rxd829s2x.cloudfront.net/data/5/78fb7ef5.mp4","path":"data/5/78fb7ef5.mp4","type":"mp4","fileId":5722361}},"qualityNames":{"2200K":"HD","1500K":"SD"},"splash":"https://dls7rxd829s2x.cloudfront.net/assets/img/FullyTransparent_65x29.png","defaultQuality":"2200K","title":"Wes Moore, 2007 Founder, iPlayerHD","description":"Why choosing iPlayerHD over YouTube embeds makes sense.","shareUrl":"https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/share","grabUrl":"https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/grab","splashPath":"/assets/img/FullyTransparent_65x29.png","downloadUrl":"https://dl.iplayerhd.com/data/8/1ace2618.mp4","videoPageUrl":"https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/share","embedCode":"<iframe src='//iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5?cbartype=auto' allowtransparency='true' frameborder='0' scrolling='no'  allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width='500' height='281'></iframe>","frameCatchCaption":null,"subtitles":[{"srclang":"en","label":"English","src":"https://dls7rxd829s2x.cloudfront.net/subtitles/b/1cedd52b.srt","default":false},{"srclang":"es","label":"Spanish; Castilian","src":"https://dls7rxd829s2x.cloudfront.net/subtitles/8/7b1b2e08.srt","default":false}]}],"quality":true,"splash":true,"advance":false,"keyboard":false,"fullscreen":false,"swf":"//releases.flowplayer.org/6.0.5/commercial/flowplayer.swf","controlStyle":"on","type":"video","guid":"b61264e0-998b-4855-956f-bbab12c8f0c5","shareUrl":"https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/share","id":533109,"customerId":1,"title":"Wes Moore, 2007 Founder, iPlayerHD","share":true,"shareEmbed":true,"download":true,"frameCatch":false,"password":null,"playButton":1,"titleStyle":"off","enableInfoIcon":1,"disableAudio":null,"endOfVideo":{"text":"Click or tap for more information.","link":"https://iplayerhd.com/pricing"},"emailCapture":null,"tags":[],"autoStart":0,"enableLooping":0,"isEmbedded":true,"canonicalUrl":"https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5","allowiphdwixembed":true,"elcapitan":false};
-    $("#player").flowplayer(config);
-});
-
-$(function () {
-    FastClick.attach(document.body);
-});</script></head></html><body class="background-black"><div id="player" data-key="$118284122026160" style="" class="play-button playlist-bottom background-black noFullscreen no-toggle share5"><video playsinline webkit-playsinline="webkit-playsinline"><source type="video/mp4" src="https://dls7rxd829s2x.cloudfront.net/data/8/1ace2618.mp4"><source type="video/flash" src="https://dls7rxd829s2x.cloudfront.net/data/8/1ace2618.mp4"><track label="English" kind="subtitles" srclang="en" src="https://dls7rxd829s2x.cloudfront.net/subtitles/b/1cedd52b.srt"><track label="Spanish; Castilian" kind="subtitles" srclang="es" src="https://dls7rxd829s2x.cloudfront.net/subtitles/8/7b1b2e08.srt"></video><div class="fp-share"></div><div id="actionOverlay"><div class="actionContainer"><a href="javascript:void(0)" class="button close"><svg style="width:24px;height:24px" viewbox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg></a><div class="actionContainerInner"><p class="topText">Top text</p><a target="_blank" class="topTextLink"><svg style="width:24px;height:24px" viewbox="0 0 24 24"><path d="M4,10V14H13L9.5,17.5L11.92,19.92L19.84,12L11.92,4.08L9.5,6.5L13,10H4Z"></path></svg></a><div class="form inputBox"><div class="formInput"><input type="email" placeholder="Email" class="email"></div><input type="hidden" value="b61264e0-998b-4855-956f-bbab12c8f0c5" class="guid"><input type="hidden" value="https://iplayerhd.com/player/video/b61264e0-998b-4855-956f-bbab12c8f0c5/captureEmail" class="emailSubmitUrl"><div class="formActions"><a href="javascript:void(0)" title="Submit" class="button submit"><svg style="width:24px;height:24px" viewbox="0 0 24 24"><path d="M4,10V14H13L9.5,17.5L11.92,19.92L19.84,12L11.92,4.08L9.5,6.5L13,10H4Z"></path></svg></a></div></div><div class="controls"><a href="javascript:void(0)" title="Replay" class="button replay"><svg style="width:24px;height:24px" viewbox="0 0 24 24"><path fill="#ffffff" d="M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z"></path></svg></a><a href="javascript:void(0)" class="button skip">Skip</a></div><div><span class="bottomText">Bottom text</span></div></div></div></div><div class="fp-context-menu"><ul class="iphd-context-menu disable-select"><li>iPlayerHD</li></ul></div><div class="scrollable-playlist disable-select"><div class="scrollable"><div style="display:none" class="controls"><div class="left disabled"><svg style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path></svg></div><div class="right"><svg style="width:30px;height:30px" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg></div></div><div class="fp-playlist items"><a href="https://dls7rxd829s2x.cloudfront.net/data/8/1ace2618.mp4" alt="Wes Moore, 2007 Founder, iPlayerHD" title="Wes Moore, 2007 Founder, iPlayerHD" class="disable-select"><div style="background-image:none" class="background"></div></a></div></div></div></div></body>
+    <script src="dist/demo.js" crossorigin="anonymous"></script>
+  </body>
+</html>
